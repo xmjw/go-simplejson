@@ -26,6 +26,12 @@ func NewJson(body []byte) (*Json, error) {
 	return j, nil
 }
 
+func NewMap(d map[string]interface{}) (*Json, error) {
+	return &Json{
+		data: d,
+	}
+}
+
 // New returns a pointer to a new, empty `Json` object
 func New() *Json {
 	return &Json{
