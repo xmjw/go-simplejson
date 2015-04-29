@@ -246,3 +246,23 @@ func TestPathWillOverwriteExisting(t *testing.T) {
 	assert.Equal(t, nil, err)
 	assert.Equal(t, "bar", s)
 }
+
+func TestCreateWithExistingHash(t *testing.T) {
+	s := make(map[string]int)
+	s["subval"] = 5
+
+	m := make(map[string]int)
+	m["field"] = "value"
+	n["sub"] = s
+
+	js := NewMap(m)
+
+	_, ok := js.CheckGet("field")
+	assert.Equal(t, true, ok)
+
+	_, ok = js.CheckGet("sub")
+	assert.Equal(t, true, ok)
+
+	n, err := js.GetPath("sub", "subval").Int()
+	assert.Equal(t, 5, n)
+}

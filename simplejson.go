@@ -26,7 +26,7 @@ func NewJson(body []byte) (*Json, error) {
 	return j, nil
 }
 
-func NewMap(d map[string]interface{}) (*Json, error) {
+func NewMap(d map[string]interface{}) *Json {
 	return &Json{
 		data: d,
 	}
